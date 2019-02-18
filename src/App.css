@@ -1,0 +1,86 @@
+#navbarNav {
+  position: absolute;
+  right: 8%;
+}
+.logo-img {
+  padding: 0;
+  margin: -8px 8%;
+}
+.logo-img img {
+  height: 46px;
+}
+
+.top-section {
+  background: lightgray url('./assets/images/bg-image.png');
+  background-size: cover;
+  height: 100vh;
+}
+
+.nav-link {
+  padding-right: 1rem!important;
+  padding-left: 1rem!important;
+  color: black!important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.nav-item:last-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-top: 15%;
+}
+.title p {
+  display: inline;
+}
+.title p:last-child {
+  color: #0e7200;
+}
+.sub-title {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgb(72, 72, 72);
+}
+
+.INNOVATE_•_LIST_•_CoNNECT {
+  font-size: 18px;
+  font-family: "Raleway";
+  color: rgb(72, 72, 72);
+  text-transform: uppercase;
+  line-height: 1.667;
+  position: absolute;
+  left: 836.844px;
+  top: 409.997px;
+  z-index: 146;
+}
+
+.search-form {
+  width: 523px;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+.search-form .col-auto, .search-form .col-8 {
+  padding: 0;
+}
+.search-form .dropdown button {
+  border-radius: 0.25rem 0 0 0.25rem;
+  color: rgba(72, 72, 72, 0.678);
+  line-height: 1.875;
+}
+.search-form input {
+  border-radius: 0;
+  border: 0;
+}
+.search-form .submit-btn {
+  border-radius: 0 0.25rem 0.25rem 0;
+  background-color: #4dadbb;
+  color: white;
+}
+.search-form .col-auto button.btn {
+  font-size: 0.6rem;
+  height: 38px;
+  border: 0;
+}
