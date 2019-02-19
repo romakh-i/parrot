@@ -1,11 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Form from './Form';
+import HTTP from '../services/HTTP';
 
 class SignUp extends Component {
+
+  handleSubmit = async (event) => {
+    const { target } = event;
+    const body = {
+      user: {
+        [target.email.name]: target.email.value,
+        [target.password.name]: target.password.value
+      }
+    };
+
+    return await HTTP.post('/sign_up', { body });
+  }
+
   render() {
     return (
-      <div>
-        <h3 className="text-center">Registration</h3>
-      </div>
+      <Form title="Registration" submit="Sign Up" handleSubmit={this.handleSubmit} />
     )
   }
 }

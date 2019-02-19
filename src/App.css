@@ -1,3 +1,9 @@
+.root {
+  position: relative;
+}
+.navbar {
+  z-index: 1;
+}
 #navbarNav {
   position: absolute;
   right: 8%;
@@ -11,9 +17,12 @@
 }
 
 .top-section {
+  position: absolute;
   background: lightgray url('./assets/images/bg-image.png');
   background-size: cover;
   height: 100vh;
+  width: 100%;
+  top: 0;
 }
 
 .nav-link {
@@ -44,32 +53,23 @@
   font-weight: 500;
   color: rgb(72, 72, 72);
 }
-
-.INNOVATE_•_LIST_•_CoNNECT {
-  font-size: 18px;
-  font-family: "Raleway";
-  color: rgb(72, 72, 72);
-  text-transform: uppercase;
-  line-height: 1.667;
-  position: absolute;
-  left: 836.844px;
-  top: 409.997px;
-  z-index: 146;
-}
-
 .search-form {
-  width: 523px;
+  width: 556px;
   margin: 0 auto;
   margin-top: 2%;
 }
-.search-form .col-auto, .search-form .col-8 {
+.search-form .col-auto, .search-form .col-7 {
   padding: 0;
 }
-.search-form .dropdown button {
+#dropdownCategory {
   border-radius: 0.25rem 0 0 0.25rem;
   color: rgba(72, 72, 72, 0.678);
-  line-height: 1.875;
+  width: 8rem;
 }
+.dropdown.show {
+  z-index: 1;
+}
+
 .search-form input {
   border-radius: 0;
   border: 0;
@@ -79,8 +79,44 @@
   background-color: #4dadbb;
   color: white;
 }
-.search-form .col-auto button.btn {
+.search-form .col-auto button {
   font-size: 0.6rem;
   height: 38px;
   border: 0;
+}
+
+.form-title {
+  display: block;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.signup-form {
+  margin: 25vh auto 0 auto;
+  padding: 1.5rem 2rem;
+  background-color: #e5e6ea;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px 0 rgba(91, 91, 92, 0.4);
+}
+.signup-form .form-control {
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 15rem;
+}
+.signup-form input[type=submit] {
+  width: 150px;
+  margin: 15px auto 0 auto;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+.signup-form input[type=submit]:hover {
+  background-color: #e0dede;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+.signup-form input[type=submit]:active {
+  transform: scale(0.95);
+}
+.toast-notif {
+  min-height: 40px;
 }

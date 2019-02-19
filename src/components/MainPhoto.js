@@ -1,13 +1,14 @@
 import React from 'react'
-import Header from './Header';
 import SearchForm from './SearchForm'
+import Wrapper from './Wrapper'
 
 const MainPhoto = () => {
   return (
-    <div className="top-section">
-      <Header />
-      <SearchForm />
-    </div>
+    <Wrapper>
+      <div className="top-section">
+        <SearchForm />
+      </div>
+    </Wrapper>
   )
 }
 
