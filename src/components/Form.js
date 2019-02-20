@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,26 +18,28 @@ class Form extends Component {
   notify = (text) => toast(text + "!", { position: toast.POSITION.TOP_CENTER, className: 'toast-notif' });
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState(prevState => ({ user: { ...prevState.user, [name]: value } }));
+    this.setState(prevState => ({
+      user: { ...prevState.user, [name]: value }
+    }));
   }
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await this.props.handleSubmit(e);
+    const response = await this.props.handleSubmit(e.target);
 
     if (response.errors) {
       for (const key in response.errors)
         if (key !== 'password_digest')
           response.errors[key].forEach((el) => this.notify(key.charAt(0).toUpperCase() + key.slice(1) + ' ' + el))
-    }
+    } else if (response instanceof Error)
+      this.notify('Entered wrong data!');
     else {
-      localStorage.setItem('jwt', response.jwt);
-      this.setState({ redirect: true });
+      this.props.dispatch({ type: 'AUTHORIZE', jwt: response.jwt });
     }
   }
 
   successRedirect = () => {
-    if (this.state.redirect)
+    if (this.props.isLoggedIn)
       return <Redirect to='/' />
   }
 
@@ -60,4 +63,9 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+
+export default connect(mapStateToProps)(Form);

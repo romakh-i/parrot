@@ -4,8 +4,7 @@ import HTTP from '../services/HTTP';
 
 class SignUp extends Component {
 
-  handleSubmit = async (event) => {
-    const { target } = event;
+  handleSubmit = async (target) => {
     const body = {
       user: {
         [target.email.name]: target.email.value,
@@ -13,7 +12,7 @@ class SignUp extends Component {
       }
     };
 
-    return await HTTP.post('/sign_up', { body });
+    return await HTTP.post('/sign_up', body);
   }
 
   render() {

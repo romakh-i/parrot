@@ -4,10 +4,10 @@ import Header from './Header';
 class Wrapper extends Component {
   render() {
     return (
-      <React.Fragment>
-        <Header />
+      <div className="content">
+        <Header fixed={this.props.headerFixed} />
         {this.props.children}
-      </React.Fragment>
+      </div>
     )
   }
 }

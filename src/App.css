@@ -8,6 +8,9 @@
   position: absolute;
   right: 8%;
 }
+.bg-header {
+  background-color: #e4e5e9;
+}
 .logo-img {
   padding: 0;
   margin: -8px 8%;
@@ -16,22 +19,34 @@
   height: 46px;
 }
 
-.top-section {
-  position: absolute;
+.main-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: lightgray url('./assets/images/bg-image.png');
   background-size: cover;
   height: 100vh;
   width: 100%;
   top: 0;
+  padding: 1px;
+}
+
+header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .nav-link {
   padding-right: 1rem!important;
   padding-left: 1rem!important;
   color: black!important;
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.5px;
+  text-transform: uppercase;
 }
 .nav-item:last-child {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -39,8 +54,7 @@
 
 .title {
   font-weight: 700;
-  font-size: 1.8rem;
-  margin-top: 15%;
+  font-size: 55px;
 }
 .title p {
   display: inline;
@@ -49,16 +63,16 @@
   color: #0e7200;
 }
 .sub-title {
-  font-size: 0.6rem;
+  font-size: 18px;
   font-weight: 500;
   color: rgb(72, 72, 72);
 }
 .search-form {
-  width: 556px;
+  justify-content: center;
   margin: 0 auto;
-  margin-top: 2%;
+  margin-top: 30px;
 }
-.search-form .col-auto, .search-form .col-7 {
+.search-form .col-auto, .search-form .col-6 {
   padding: 0;
 }
 #dropdownCategory {
@@ -80,9 +94,26 @@
   color: white;
 }
 .search-form .col-auto button {
-  font-size: 0.6rem;
+  font-size: 14px;
   height: 38px;
   border: 0;
+}
+
+.top-section-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+.top-section-btn {
+  color: rgb(14, 114, 0);
+  padding: 15px;
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  line-height: 1.2;
+  font-size: 14px;
 }
 
 .form-title {
@@ -91,7 +122,6 @@
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
-
 .signup-form {
   margin: 25vh auto 0 auto;
   padding: 1.5rem 2rem;
@@ -119,4 +149,36 @@
 }
 .toast-notif {
   min-height: 40px;
+}
+
+.products-section {
+  height: 100vh;
+}
+.products-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.products-title {
+  text-transform: capitalize;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(24, 23, 23);
+}
+.products-subtitle {
+  font-size: 16px;
+  color: rgb(109, 109, 109);
+}
+.products-grid {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+.first {
+  grid-column: 1;
+  grid-row: 1;
+}
+.second {
+  grid-column: 2;
+  grid-row: 2;
 }

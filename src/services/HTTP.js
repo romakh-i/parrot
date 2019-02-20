@@ -13,7 +13,7 @@ export default class HTTP {
     if (method === 'GET') {
       requestParams.headers['Authorization'] = 'Bearer ' + params.auth;
     } else {
-      requestParams.body = JSON.stringify(params.body);
+      requestParams.body = JSON.stringify(params);
     }
     console.log(requestParams);
     return fetch(request_url, requestParams)
