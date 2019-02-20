@@ -153,13 +153,16 @@ header.fixed {
 
 .products-section {
   height: 100vh;
+  background-color: rgb(247, 247, 247);
 }
 .products-content {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
+
 .products-title {
   text-transform: capitalize;
   font-size: 30px;
@@ -170,15 +173,57 @@ header.fixed {
   font-size: 16px;
   color: rgb(109, 109, 109);
 }
+
 .products-grid {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  font-size: 16px;
+  color: rgb(139, 139, 139);
 }
-.first {
+.products-grid .card { 
+  margin: 10px 15px;
+  padding: 8px;
+  border-radius: 0;
+  border: 0;
+}
+.products-grid .card .card-img-top {
+  border-radius: 0;
+}
+.products-grid .card .card-text {
+  margin-top: 5px;
+}
+
+.product-first {
   grid-column: 1;
   grid-row: 1;
 }
-.second {
+.product-second {
+  grid-column: 2;
+  grid-row: 1;
+}
+.product-third {
+  grid-column: 3;
+  grid-row: 1;
+}
+.product-forth {
+  grid-column: 1;
+  grid-row: 2;
+}
+.product-fifth {
   grid-column: 2;
   grid-row: 2;
+}
+.product-sixth {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.Rectangle_8 {
+  background-color: rgb(247, 247, 247);
+  position: absolute;
+  left: -16px;
+  top: 980px;
+  width: 2240px;
+  height: 1814px;
+  z-index: 8;
 }
