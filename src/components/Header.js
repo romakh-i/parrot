@@ -38,13 +38,13 @@ class Header extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <nav className="collapse navbar-collapse" id="navbarNav">
+          <nav className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="/">ALL PRODUCTS</a>
+                <Link to="/" className="nav-link">ALL PRODUCTS</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">ABOUT US</a>
+                <Link to="/" className="nav-link">ABOUT US</Link>
               </li>
               {!this.props.isLoggedIn ? (
                 [(<li key="login" className="nav-item"><Link to="/login" className="nav-link">LOG IN</Link></li>),

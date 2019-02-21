@@ -24,7 +24,7 @@ class SearchForm extends Component {
               </div>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-6 col-sm-5 search-field">
             <input type="text" className="form-control" />
           </div>
           <div className="col-auto">
