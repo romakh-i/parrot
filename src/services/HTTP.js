@@ -1,3 +1,5 @@
+import { store } from "../components/AppRouter";
+
 const API_URL = 'https://ski-rent-api.herokuapp.com/api';
 
 export default class HTTP {
@@ -11,7 +13,7 @@ export default class HTTP {
     const request_url = API_URL + url;
 
     if (method === 'GET') {
-      requestParams.headers['Authorization'] = 'Bearer ' + params.auth;
+      requestParams.headers['Authorization'] = 'Bearer ' + store.getState().jwt;
     } else {
       requestParams.body = JSON.stringify(params);
     }

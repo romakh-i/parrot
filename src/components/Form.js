@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wrapper from './Wrapper';
+import { bindActionCreators } from 'redux';
+import { signIn, getItems } from '../store/actions';
 
 class Form extends Component {
   constructor(props) {
@@ -25,17 +27,18 @@ class Form extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await this.props.handleSubmit(e.target);
+    this.props.signIn(e.target);
 
-    if (response.errors) {
-      for (const key in response.errors)
-        if (key !== 'password_digest')
-          response.errors[key].forEach((el) => this.notify(key.charAt(0).toUpperCase() + key.slice(1) + ' ' + el))
-    } else if (response instanceof Error)
-      this.notify('Entered wrong data!');
-    else {
-      this.props.dispatch({ type: 'AUTHORIZE', jwt: response.jwt });
-    }
+    console.warn('object');
+
+    // if (response.errors) {
+    //   for (const key in response.errors)
+    //     if (key !== 'password_digest')
+    //       response.errors[key].forEach((el) => this.notify(key.charAt(0).toUpperCase() + key.slice(1) + ' ' + el))
+    // } else if (response instanceof Error)
+    //   this.notify('Entered wrong data!');
+    // else
+    // this.props.dispatch({ type: 'AUTHORIZE', jwt: response.jwt });
   }
 
   successRedirect = () => {
@@ -44,6 +47,9 @@ class Form extends Component {
   }
 
   render() {
+    if (this.props.isLoggedIn)
+      this.props.getItems();
+
     return (
       <Wrapper>
         {this.successRedirect()}
@@ -67,5 +73,9 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.isLoggedIn
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  signIn: bindActionCreators(signIn, dispatch),
+  getItems: bindActionCreators(getItems, dispatch),
+});
 
-export default connect(mapStateToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
