@@ -13,7 +13,7 @@ import configureStore from '../store/configureStore';
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
-export const store = configureStore().store;
+export const store = configureStore();
 
 class AppRouter extends Component {
   render() {

@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import { combineReducers } from "redux-immutable";
 import thunk from "redux-thunk";
 // import { persistStore, persistReducer } from "redux-persist";
 // import reducer from "../reducers";
@@ -15,7 +16,7 @@ import userReducer from ".";
 //   version: 1,
 // };
 
-export default function configureStore(onCompletion) {
+export default function configureStore() {
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const enhancer = composeEnhancers(applyMiddleware(thunk));
@@ -23,5 +24,5 @@ export default function configureStore(onCompletion) {
   const store = createStore(userReducer, enhancer);
   // const persister = persistStore(store, undefined, onCompletion);
 
-  return { store };
+  return store;
 }
