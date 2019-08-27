@@ -13,7 +13,7 @@ export default class HTTP {
     const request_url = API_URL + url;
 
     if (method === 'GET') {
-      requestParams.headers['Authorization'] = 'Bearer ' + store.getState().jwt;
+      requestParams.headers['Authorization'] = 'Bearer ' + store.getState().user.jwt;
     } else {
       requestParams.body = JSON.stringify(params);
     }

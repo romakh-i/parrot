@@ -1,10 +1,13 @@
 import { Types } from "./types";
+import { fromJS } from "immutable";
 
-const initialState = {
+const initialState = fromJS({
   isLoggedIn: false,
   jwt: null,
-  email: null
-}
+  email: null,
+  items: [],
+  myItems: [],
+});
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
@@ -15,17 +18,13 @@ export default function userReducer(state = initialState, action) {
       };
 
     case Types.UN_AUTHORIZE:
-      return {
-        isLoggedIn: false,
-        jwt: null,
-        email: null
-      };
+      return { ...initialState };
 
     case Types.GET_USER:
-      console.log("auth", action);
       return {
         ...state,
-        email: action.email
+        email: action.payload.email,
+        myItems: action.payload.items,
       };
 
     case Types.GET_CATEGORIES:

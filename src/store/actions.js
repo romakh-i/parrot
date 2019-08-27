@@ -16,6 +16,18 @@ export const signIn = target => dispatch => {
   });
 }
 
+export const logOut = () => dispatch => {
+  dispatch({ type: Types.UN_AUTHORIZE });
+}
+
+export const getUser = () => dispatch => {
+  HTTP.get('/users/me')
+    .then(response => dispatch({
+      type: Types.GET_USER,
+      payload: response,
+    }));
+}
+
 export const getCategories = () => dispatch => {
   HTTP.get('/categories')
     .then(response => {

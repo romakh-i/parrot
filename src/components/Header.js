@@ -1,28 +1,21 @@
 import React, { Component } from 'react'
 import logo from "../assets/images/logo.png";
 import { Link } from 'react-router-dom'
-import HTTP from '../services/HTTP';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getUser, logOut } from '../store/actions';
+
 
 class Header extends Component {
   constructor(props) {
     super(props);
 
     if (this.props.isLoggedIn)
-      this.getUser();
-  }
-
-  async getUser() {
-    const user = await HTTP.get('/users/me', { auth: this.props.jwt });
-    if (user instanceof Error) {
-      console.log("Wrong token!");
-      this.logOut();
-    }
-    else this.props.dispatch({ type: 'GET_USER', email: user.email })
+      this.props.getUser();
   }
 
   logOut = () => {
-    this.props.dispatch({ type: 'UNAUTHORIZE' });
+    this.props.logOut();
   }
 
   render() {
@@ -62,9 +55,14 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.isLoggedIn,
-  jwt: state.jwt,
-  email: state.email
+  isLoggedIn: state.user.isLoggedIn,
+  jwt: state.user.jwt,
+  email: state.user.email
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  getUser: bindActionCreators(getUser, dispatch),
+  logOut: bindActionCreators(logOut, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
