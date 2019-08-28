@@ -13,7 +13,6 @@ class Form extends Component {
 
     this.state = {
       user: {},
-      redirect: props.jwt,
     }
   }
 
@@ -70,8 +69,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.user.isLoggedIn,
-  jwt: state.user.jwt,
+  isLoggedIn: state.getIn(["user", "isLoggedIn"]),
 });
 
 const mapDispatchToProps = (dispatch) => ({

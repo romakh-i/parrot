@@ -55,9 +55,9 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.user.isLoggedIn,
-  jwt: state.user.jwt,
-  email: state.user.email
+  isLoggedIn: state.getIn(["user", "isLoggedIn"]),
+  jwt: state.getIn(["user", "jwt"]),
+  email: state.getIn(["user", "email"]),
 });
 
 const mapDispatchToProps = (dispatch) => ({

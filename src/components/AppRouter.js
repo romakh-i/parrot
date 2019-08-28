@@ -18,10 +18,10 @@ class AppRouter extends Component {
             <Route exact path="/" component={MainPage} />
 
             <Route path="/signup" render={(props) => (
-              !store.getState().user.isLoggedIn ? <SignUp {...props} /> : <Redirect to="/" />
+              !store.getState().getIn(["user", "isLoggedIn"]) ? <SignUp {...props} /> : <Redirect to="/" />
             )} />
             <Route path="/login" render={(props) => (
-              !store.getState().user.isLoggedIn ? <LogIn {...props} /> : <Redirect to="/" />
+              !store.getState().getIn(["user", "isLoggedIn"]) ? <LogIn {...props} /> : <Redirect to="/" />
             )} />
             <Redirect to="/" />
           </Switch>
