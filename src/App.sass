@@ -1,45 +1,42 @@
-.root {
-  position: relative;
-}
-.navbar {
-  z-index: 1;
-}
-#navbarNav {
+.root
+  position: relative
+
+.navbar
+  z-index: 1
+
+#navbarNav
   position: absolute;
   right: 8%;
-}
-#navbarNavDropdown {
+
+#navbarNavDropdown
   justify-content: flex-end;
-}
-.bg-header {
+
+.bg-header
   background-color: #e4e5e9;
-}
-.logo-img {
+
+.logo-img
   padding: 0;
   margin: -8px 8%;
-}
-.logo-img img {
-  height: 46px;
-}
 
-.main-section {
+.logo-img img
+  height: 46px;
+
+.main-section
   background: lightgray url('./assets/images/bg-image.png');
   background-size: cover;
   height: 100vh;
   width: 100%;
   top: 0;
   padding: 1px;
-}
 
-header.fixed {
+header.fixed
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   z-index: 2;
-}
 
-.nav-link {
+.nav-link
   padding-right: 1rem!important;
   padding-left: 1rem!important;
   color: black!important;
@@ -47,222 +44,207 @@ header.fixed {
   font-weight: 500;
   letter-spacing: -0.5px;
   text-transform: uppercase;
-}
-.nav-item:last-child {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-.top-section {
+
+  &:last-child
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+.top-section
   margin-top: 25vh;
-}
-.title {
+
+.title
   font-weight: 700;
   font-size: 6vw;
-}
-.title p {
-  display: inline;
-}
-.title p:last-child {
-  color: #0e7200;
-}
-.sub-title {
+
+  p 
+    display: inline;
+
+    &:last-child
+      color: #0e7200;
+
+.sub-title
   font-size: 3.5vw;
   font-weight: 500;
   color: rgb(72, 72, 72);
-}
-@media (min-width: 576px) {
-  .title {
-    font-size: 3.7vw;
-  }
-  .sub-title {
-    font-size: 1.9vw;
-  }
-}
-@media (min-width: 768px) {
-  .title {
-    font-size: 3.1vw;
-  }
-  .sub-title {
-    font-size: 1.5vw;
-  }
-}
-@media (min-width: 1200px) {
-  .title {
-    font-size: 2.8vw;
-  }
-  .sub-title {
-    font-size: 1.1vw;
-  }
-}
-@media (min-width: 1920px) {
-  .title {
-    font-size: 55px;
-  }
-  .sub-title {
-    font-size: 18px;
-  }
-}
 
-.search-form {
+@media (min-width: 576px)
+  .title
+    font-size: 3.7vw;
+
+  .sub-title
+    font-size: 1.9vw;
+
+@media (min-width: 768px)
+  .title
+    font-size: 3.1vw;
+
+  .sub-title
+    font-size: 1.5vw;
+
+@media (min-width: 1200px)
+  .title
+    font-size: 2.8vw;
+
+  .sub-title
+    font-size: 1.1vw;
+
+@media (min-width: 1920px)
+  .title
+    font-size: 55px;
+
+  .sub-title
+    font-size: 18px;
+
+.search-form
   justify-content: center;
   margin: 0 auto;
   margin-top: 30px;
-}
-.search-form .col-auto, .search-field {
+
+.search-form .col-auto,
+.search-field
   padding: 0 !important;
-}
-#dropdownCategory {
+
+#dropdownCategory
   border-radius: 0.3rem 0 0 0.3rem;
   color: rgba(72, 72, 72, 0.678);
   width: 8rem;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-}
-.dropdown.show {
-  z-index: 1;
-}
 
-.search-form input {
+.dropdown.show
+  z-index: 1;
+
+.search-form input
   border-radius: 0;
   border: 0;
-}
-.search-form .submit-btn {
+
+.search-form .submit-btn
   border-radius: 0 0.3rem 0.3rem 0;
   background-color: #4dadbb;
   color: white;
-}
-.search-form .col-auto button {
+
+.search-form .col-auto button
   font-size: 14px;
   height: 38px;
   border: 0;
-}
 
-.top-section-buttons {
+.top-section-buttons
   display: flex;
   justify-content: center;
   align-items: flex-end;
   margin-top: 30vh;
-  /* margin-bottom: 2vh; */
-}
 
-.top-section-btn {
+.top-section-btn
   color: rgb(14, 114, 0);
   padding: 15px;
   margin: 0 10px;
   background-color: rgba(255, 255, 255, 0.8);
   line-height: 1.2;
   font-size: 14px;
-}
 
-.form-title {
+.form-title
   display: block;
   font-weight: 500;
   font-size: 1.2rem;
   margin-bottom: 20px;
-}
-.signup-form {
+
+.signup-form
   margin: 25vh auto 0 auto;
   padding: 1.5rem 2rem;
   background-color: #e5e6ea;
   border-radius: 20px;
   box-shadow: 0 10px 30px 0 rgba(91, 91, 92, 0.4);
-}
-.signup-form .form-control {
+
+.signup-form .form-control
   border-radius: 5px;
   margin: 5px 0;
   width: 15rem;
-}
-.signup-form input[type=submit] {
+
+.signup-form input[type=submit]
   width: 150px;
   margin: 15px auto 0 auto;
   border-radius: 10px;
   transition: all 0.3s ease-out;
-}
-.signup-form input[type=submit]:hover {
+
+.signup-form input[type=submit]:hover
   background-color: #e0dede;
   border: 1px solid rgba(0, 0, 0, 0.2)
-}
-.signup-form input[type=submit]:active {
-  transform: scale(0.95);
-}
-.toast-notif {
-  min-height: 40px;
-}
 
-.products-section {
+.signup-form input[type=submit]:active
+  transform: scale(0.95);
+
+.toast-notif
+  min-height: 40px;
+
+.products-section
   height: 100vh;
   background-color: rgb(247, 247, 247);
-}
-.products-content {
+
+.products-content
   height: 100vh;
   padding: 4vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
 
-.products-title {
+.products-title
   text-transform: capitalize;
   padding-bottom: 10px;
   font-size: 30px;
   font-weight: 500;
   color: rgb(24, 23, 23);
-}
-.products-subtitle {
+
+.products-subtitle
   font-size: 16px;
   color: rgb(109, 109, 109);
-}
 
-.products-grid {
+.products-grid
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr 1fr;
   font-size: 16px;
   color: rgb(139, 139, 139);
-}
-.products-grid .card { 
+
+.products-grid .card
   margin: 15px 8px;
   padding: 8px;
   border-radius: 0;
   border: 0;
   width: 25vw;
-}
-@media (min-width: 576px) {
-  .products-grid .card { 
+
+@media (min-width: 576px)
+  .products-grid .card
     margin: 15px 25px;
-  }
-}
-.products-grid .card .card-img-top {
+
+.products-grid .card .card-img-top
   border-radius: 0;
-}
-.products-grid .card .card-text {
+
+.products-grid .card .card-text
   margin: 10px 0 5px 0;
-}
 
-.product-first {
+.product-first
   grid-column: 1;
   grid-row: 1;
-}
-.product-second {
+
+.product-second
   grid-column: 2;
   grid-row: 1;
-}
-.product-third {
+
+.product-third
   grid-column: 3;
   grid-row: 1;
-}
-.product-forth {
+
+.product-forth
   grid-column: 1;
   grid-row: 2;
-}
-.product-fifth {
+
+.product-fifth
   grid-column: 2;
   grid-row: 2;
-}
-.product-sixth {
+
+.product-sixth
   grid-column: 3;
   grid-row: 2;
-}
 
-.Rectangle_8 {
+.Rectangle_8
   background-color: rgb(247, 247, 247);
   position: absolute;
   left: -16px;
@@ -270,4 +252,3 @@ header.fixed {
   width: 2240px;
   height: 1814px;
   z-index: 8;
-}
