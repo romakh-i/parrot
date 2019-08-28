@@ -37,15 +37,16 @@ header.fixed
   z-index: 2;
 
 .nav-link
-  padding-right: 1rem!important;
-  padding-left: 1rem!important;
-  color: black!important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  color: black !important;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.5px;
   text-transform: uppercase;
 
-  &:last-child
+.nav-item:last-of-type
+  .nav-link
     border-left: 1px solid rgba(0, 0, 0, 0.1);
 
 .top-section
@@ -214,35 +215,12 @@ header.fixed
   .products-grid .card
     margin: 15px 25px;
 
-.products-grid .card .card-img-top
-  border-radius: 0;
+.products-grid .card
+  .card-img-top
+    border-radius: 0
 
-.products-grid .card .card-text
-  margin: 10px 0 5px 0;
-
-.product-first
-  grid-column: 1;
-  grid-row: 1;
-
-.product-second
-  grid-column: 2;
-  grid-row: 1;
-
-.product-third
-  grid-column: 3;
-  grid-row: 1;
-
-.product-forth
-  grid-column: 1;
-  grid-row: 2;
-
-.product-fifth
-  grid-column: 2;
-  grid-row: 2;
-
-.product-sixth
-  grid-column: 3;
-  grid-row: 2;
+  .card-text
+    margin: 10px 0 5px 0
 
 .Rectangle_8
   background-color: rgb(247, 247, 247);
