@@ -1,19 +1,25 @@
 import HTTP from '../services/HTTP';
 import { Types } from './types';
 
-export const signIn = target => dispatch => {
-  HTTP.post('/user_token', {
-    auth: {
-      [target.email.name]: target.email.value,
-      [target.password.name]: target.password.value
-    }
-  }).then(response => {
-    dispatch({
-      type: Types.AUTHORIZE,
-      payload: response,
-    });
-    console.warn(response);
-  });
+export const signUp = user => dispatch => {
+  HTTP.post('/sign_up', user)
+    .then(response => {
+      dispatch({
+        type: Types.AUTHORIZE,
+        payload: response,
+      });
+    })
+    .catch(response => console.warn("ERROR: ", response));
+}
+
+export const signIn = user => dispatch => {
+  HTTP.post('/user_token', { auth: user })
+    .then(response => {
+      dispatch({
+        type: Types.AUTHORIZE,
+        payload: response,
+      });
+    }).catch(response => console.warn("ERROR: ", response));
 }
 
 export const logOut = () => dispatch => {
@@ -22,10 +28,12 @@ export const logOut = () => dispatch => {
 
 export const getUser = () => dispatch => {
   HTTP.get('/users/me')
-    .then(response => dispatch({
-      type: Types.GET_USER,
-      payload: response,
-    }));
+    .then(response =>
+      dispatch({
+        type: Types.GET_USER,
+        payload: response,
+      })
+    );
 }
 
 export const getCategories = () => dispatch => {

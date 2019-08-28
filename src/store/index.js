@@ -12,20 +12,19 @@ const initialState = fromJS({
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case Types.AUTHORIZE:
-      return {
-        isLoggedIn: true,
-        jwt: action.payload.jwt
-      };
+      return state.set("isLoggedIn", true)
+        .set("jwt", action.payload.jwt);
 
     case Types.UN_AUTHORIZE:
       return { ...initialState };
 
     case Types.GET_USER:
-      return {
-        ...state,
-        email: action.payload.email,
-        myItems: action.payload.items,
-      };
+      return state;
+    // return {
+    //   ...state,
+    //   email: action.payload.email,
+    //   myItems: action.payload.items,
+    // };
 
     case Types.GET_CATEGORIES:
       return {

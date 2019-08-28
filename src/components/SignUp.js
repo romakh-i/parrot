@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signUp } from '../store/actions';
 import Form from './Form';
-import HTTP from '../services/HTTP';
 
 class SignUp extends Component {
+  handleSubmit = data => e => {
+    e.preventDefault();
 
-  handleSubmit = async (target) => {
-    const body = {
-      user: {
-        [target.email.name]: target.email.value,
-        [target.password.name]: target.password.value
-      }
-    };
-
-    return await HTTP.post('/sign_up', body);
+    this.props.signUp(data);
   }
 
   render() {
     return (
-      <Form title="Registration" submit="Sign Up" handleSubmit={this.handleSubmit} />
+      <Form title="Registration"
+        submit="Sign Up"
+        handleSubmit={this.handleSubmit}
+      />
     )
   }
 }
 
-export default SignUp
+const mapDispatchToProps = (dispatch) => ({
+  signUp: bindActionCreators(signUp, dispatch),
+});
+
+export default connect(undefined, mapDispatchToProps)(SignUp);

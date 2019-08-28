@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wrapper from './Wrapper';
 import { bindActionCreators } from 'redux';
-import { signIn, getItems } from '../store/actions';
+import { getItems } from '../store/actions';
 
 class Form extends Component {
   constructor(props) {
@@ -19,25 +19,12 @@ class Form extends Component {
   notify = (text) => toast(text + "!", { position: toast.POSITION.TOP_CENTER, className: 'toast-notif' });
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState(prevState => ({
-      user: { ...prevState.user, [name]: value }
-    }));
-  }
-
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    this.props.signIn(e.target);
-
-    console.warn('object');
-
-    // if (response.errors) {
-    //   for (const key in response.errors)
-    //     if (key !== 'password_digest')
-    //       response.errors[key].forEach((el) => this.notify(key.charAt(0).toUpperCase() + key.slice(1) + ' ' + el))
-    // } else if (response instanceof Error)
-    //   this.notify('Entered wrong data!');
-    // else
-    // this.props.dispatch({ type: 'AUTHORIZE', jwt: response.jwt });
+    this.setState({
+      user: {
+        ...this.state.user,
+        [name]: value,
+      }
+    });
   }
 
   successRedirect = () => {
@@ -54,7 +41,7 @@ class Form extends Component {
         {this.successRedirect()}
         <div className="container">
           <div className="row">
-            <form className="signup-form" onSubmit={this.handleSubmit}>
+            <form className="signup-form" onSubmit={this.props.handleSubmit(this.state)}>
               <label className="text-center form-title">{this.props.title}</label>
               <input type="text" className="form-control" name="email" placeholder="Email" onChange={this.handleChange} />
               <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
@@ -73,7 +60,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signIn: bindActionCreators(signIn, dispatch),
   getItems: bindActionCreators(getItems, dispatch),
 });
 

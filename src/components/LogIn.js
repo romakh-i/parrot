@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signIn, getItems } from '../store/actions';
 import Form from './Form';
-import HTTP from '../services/HTTP';
 
 class LogIn extends Component {
+  handleSubmit = data => e => {
+    e.preventDefault();
 
-  handleSubmit = async (target) => {
-    const body = {
-      auth: {
-        [target.email.name]: target.email.value,
-        [target.password.name]: target.password.value
-      }
-    };
-
-    return await HTTP.post('/user_token', body);
+    this.props.signIn(data.user);
   }
 
   render() {
     return (
-      <Form title="Authorization" submit="Log In" handleSubmit={this.handleSubmit} />
+      <Form title="Authorization"
+        submit="Log In"
+        handleSubmit={this.handleSubmit}
+      />
     )
   }
 }
 
-export default LogIn;
+const mapDispatchToProps = (dispatch) => ({
+  signIn: bindActionCreators(signIn, dispatch),
+  getItems: bindActionCreators(getItems, dispatch),
+});
+
+export default connect(undefined, mapDispatchToProps)(LogIn);
